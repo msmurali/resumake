@@ -1,0 +1,129 @@
+{
+  "personal-info": {
+    "first-name": "Mark",
+    "last-name": "Twain",
+    "full-name": "Mark Twain",
+    "address": "122 4th Street, Seattle WA",
+    "website": "www.mark-twain.com"
+  },
+  "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores perspiciatis aliquam, ea, maiores cum placeat dolorem magnam soluta quidem voluptate, beatae repellat vitae. Quam repudiandae dolor quos, reiciendis assumenda ea.",
+  "contact": {
+    "mobile": "1234567890",
+    "telephone": "0441232343",
+    "linked-in": "www.linkedin.com/marktwain",
+    "facebook": "www.facebook.com/marktwain",
+    "email": "marktwain@emial.com"
+  },
+  "experience": [
+    {
+      "designation": "Software Development Engineer, DPReview",
+      "company": "IMDb.com (Amazon subsidiary)",
+      "location": "Seattle WA",
+      "description": [
+        "Full-stack web development, collaborating with DPReview's editors & other Amazon teams.",
+        "Owned visual/UI/UX design and implementation for buying guide portal & new mobile site features.",
+        "homepage feature blocks and forums; increased engagement metrics by double-digit percentage Owned cross-team project to bring DPReview content onto Amazon marketplace."
+      ],
+      "start-year": "2020",
+      "end-year": "present"
+    },
+    {
+      "designation": "Data Analyst",
+      "company": "Scope Technologies",
+      "location": "Newyork",
+      "description": [
+        "Full-stack web development, collaborating with DPReview's editors & other Amazon teams.",
+        "Owned visual/UI/UX design and implementation for buying guide portal & new mobile site features.",
+        "homepage feature blocks and forums; increased engagement metrics by double-digit percentage Owned cross-team project to bring DPReview content onto Amazon marketplace."
+      ],
+      "start-year": "2018",
+      "end-year": "2020"
+    }
+  ],
+  "education": [
+    {
+      "instituition": "Case Western Reserve University",
+      "course": "Masters in Computer Science",
+      "grade": "3.4 GPA",
+      "location": "Newyork"
+    },
+    {
+      "instituition": "Case Western Reserve University",
+      "course": "Bachelors in Computer Science",
+      "grade": "3.8 GPA",
+      "location": "Newyork"
+    }
+  ],
+  "achivements": [
+    "Completed 200 hours of work experience.",
+    "Owned cross-team project to bring DPReview content onto Amazon marketplace.",
+    "Successfully managed and led a team of six members.",
+    "Three years of previous work experience in the industry.",
+    "Increased sales by 17% over six months."
+  ],
+  "skills": [
+    {
+      "skill": "Leadership",
+      "proficiency": "4.5"
+    },
+    {
+      "skill": "Public speaking",
+      "proficiency": "4.0"
+    },
+    {
+      "skill": "Sales and Marketing",
+      "proficiency": "3.5"
+    },
+    {
+      "skill": "Customer service",
+      "proficiency": "4.0"
+    }
+  ],
+  "software": [
+    {
+      "software": "python",
+      "proficiency": "4.0"
+    },
+    {
+      "software": "Scala",
+      "proficiency": "3.0"
+    },
+    {
+      "software": "ML",
+      "proficiency": "4.0"
+    },
+    {
+      "software": "HTML & CSS",
+      "proficiency": "4.0"
+    },
+    {
+      "software": "Java",
+      "proficiency": "4.5"
+    }
+  ],
+  "languages": ["English", "German"],
+  "courses": [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Java Core Course",
+    "Leardership Management"
+  ],
+  "certification": [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Java Core Course",
+    "Leardership Management"
+  ],
+  "projects": [
+    {
+      "title": "AI chat bot",
+      "description": "Chat bot for clearing faqs.",
+      "link": "marktwain-apps.com"
+    },
+    {
+      "title": "Stock price predictor",
+      "description": "A bot to predict stock price, build using ml.",
+      "link": "marktwain-apps.com"
+    }
+  ]
+}
