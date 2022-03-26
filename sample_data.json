@@ -1,4 +1,9 @@
 {
+  "color": {
+    "r": "122",
+    "g": "0",
+    "b": "160"
+  },
   "personal-info": {
     "first-name": "Mark",
     "last-name": "Twain",

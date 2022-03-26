@@ -1,6 +1,6 @@
 const fs = require("fs");
 const jsdom = require("jsdom");
-const { format } = require("path/posix");
+const htmlToPdf = require("html-pdf");
 
 /* DEV */
 const data = require("./sample_data.json");
@@ -37,7 +37,20 @@ function createResume(data) {
 
   setLanguages(document, data["languages"]);
 
-  console.log(document.documentElement.innerHTML);
+  setResumeHeaderColor(document, data["color"]);
+
+  const html = document.documentElement.innerHTML;
+
+  console.log(html);
+
+  htmlToPdf.create(html, { format: "A4" }).toFile("./resume.pdf", (_, res) => {
+    console.log(res);
+  });
+}
+
+function setResumeHeaderColor(document, color) {
+  const header = document.querySelector("header");
+  header.style.backgroundColor = `rgb(${color.r},${color.g},${color.b})`;
 }
 
 function appendH3Title(document, element, title) {
@@ -159,39 +172,38 @@ function getStars(document, starCount) {
   const p = document.createElement("p");
   for (let i = 0; i < starCount; i++) {
     const star = document.createElement("span");
-    star.textContent = "&#9733;";
+    star.innerHTML = "&#9733;";
     p.appendChild(star);
   }
   return p;
 }
 
 function setSkills(document, data, title) {
-  const sidebar = document.querySelector(".side");
-  appendH3Title(document, sidebar, title);
+  const main = document.querySelector(".main");
+  appendH3Title(document, main, title);
   const section = document.createElement("section");
-  sidebar.appendChild(section);
+  main.appendChild(section);
   const ul = document.createElement("ul");
   section.appendChild(ul);
 
   data.map((skill) => {
     const li = document.createElement("li");
-    const p1 = document.createElement("p");
-    p1.textContent = skill["skill"];
-    const p2 = getStars(document, parseInt(skill["proficiency"]));
-    li.appendChild(p1);
-    li.appendChild(document.createElement("br"));
-    li.appendChild(p2);
+    const p = document.createElement("p");
+    p.textContent = skill["skill"];
+    const stars = getStars(document, parseInt(skill["proficiency"]));
+    p.textContent += ` ${stars.textContent}`;
+    li.appendChild(p);
     ul.appendChild(li);
   });
 
-  sidebar.appendChild(section);
+  main.appendChild(section);
 }
 
 function setContacts(document, data) {
-  const sidebar = document.querySelector(".side");
-  appendH3Title(document, sidebar, "Contact");
+  const main = document.querySelector(".main");
+  appendH3Title(document, main, "Contact");
   const section = document.createElement("section");
-  sidebar.appendChild(section);
+  main.appendChild(section);
   const ul = document.createElement("ul");
   section.appendChild(ul);
 
@@ -233,25 +245,25 @@ function setContacts(document, data) {
 }
 
 function setLanguages(document, data) {
-  const sidebar = document.querySelector(".side");
+  const main = document.querySelector(".main");
   const section = document.createElement("section");
-  sidebar.appendChild(section);
+  main.appendChild(section);
   appendH3Title(document, section, "Languages");
   appendUl(document, section, data);
 }
 
 function setCourses(document, data) {
-  const sidebar = document.querySelector(".side");
+  const main = document.querySelector(".main");
   const section = document.createElement("section");
-  sidebar.appendChild(section);
+  main.appendChild(section);
   appendH3Title(document, section, "Courses");
   appendUl(document, section, data);
 }
 
 function setCertifications(document, data) {
-  const sidebar = document.querySelector(".side");
+  const main = document.querySelector(".main");
   const section = document.createElement("section");
-  sidebar.appendChild(section);
+  main.appendChild(section);
   appendH3Title(document, section, "Certifications");
   appendUl(document, section, data);
 }
