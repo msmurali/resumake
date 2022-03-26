@@ -1,0 +1,109 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins";
+        }
+
+        @media print {
+
+            article,
+            section {
+                break-inside: avoid;
+            }
+
+            .main,
+            .side {
+                height: 100%;
+            }
+        }
+
+        body {
+            width: 21cm;
+            min-height: 29.7cm;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 1em;
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: 15cm 6cm;
+        }
+
+        .main {
+            background-color: #fff;
+            padding: 1em;
+        }
+
+        .main>h1 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.8em;
+        }
+
+        .side {
+            /* background-color: rgb(0, 66, 153); */
+            /* background-color: rgb(175, 0, 52); */
+            /* background-color: rgb(0, 119, 59); */
+            /* background-color: rgb(151, 93, 0); */
+            background-color: rgb(122, 0, 160);
+            padding: 1em;
+            color: white;
+        }
+
+        p,
+        span {
+            font-size: 0.8rem;
+        }
+
+        article {
+            margin-bottom: 2em;
+        }
+
+        h3 {
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 0.2em;
+        }
+
+        article>div {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            margin-bottom: 1em;
+            font-weight: 300;
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 2em;
+        }
+
+        .side>section {
+            margin-bottom: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="fullname"></h1>
+        <p class="description"></p>
+    </header>
+    <div class="wrapper">
+        <main class="main"></main>
+        <aside class="side"></aside>
+    </div>
+</body>

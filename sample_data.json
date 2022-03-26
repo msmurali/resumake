@@ -17,7 +17,7 @@
   "experience": [
     {
       "designation": "Software Development Engineer, DPReview",
-      "company": "IMDb.com (Amazon subsidiary)",
+      "organization": "IMDb.com (Amazon subsidiary)",
       "location": "Seattle WA",
       "description": [
         "Full-stack web development, collaborating with DPReview's editors & other Amazon teams.",
@@ -29,7 +29,7 @@
     },
     {
       "designation": "Data Analyst",
-      "company": "Scope Technologies",
+      "organization": "Scope Technologies",
       "location": "Newyork",
       "description": [
         "Full-stack web development, collaborating with DPReview's editors & other Amazon teams.",
@@ -64,41 +64,41 @@
   "skills": [
     {
       "skill": "Leadership",
-      "proficiency": "4.5"
+      "proficiency": "4"
     },
     {
       "skill": "Public speaking",
-      "proficiency": "4.0"
+      "proficiency": "4"
     },
     {
       "skill": "Sales and Marketing",
-      "proficiency": "3.5"
+      "proficiency": "3"
     },
     {
       "skill": "Customer service",
-      "proficiency": "4.0"
+      "proficiency": "4"
     }
   ],
   "software": [
     {
-      "software": "python",
-      "proficiency": "4.0"
+      "skill": "python",
+      "proficiency": "4"
     },
     {
-      "software": "Scala",
-      "proficiency": "3.0"
+      "skill": "Scala",
+      "proficiency": "3"
     },
     {
-      "software": "ML",
-      "proficiency": "4.0"
+      "skill": "ML",
+      "proficiency": "4"
     },
     {
-      "software": "HTML & CSS",
-      "proficiency": "4.0"
+      "skill": "HTML & CSS",
+      "proficiency": "4"
     },
     {
-      "software": "Java",
-      "proficiency": "4.5"
+      "skill": "Java",
+      "proficiency": "4"
     }
   ],
   "languages": ["English", "German"],
