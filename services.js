@@ -1,15 +1,11 @@
 const fs = require("fs");
 const jsdom = require("jsdom");
-const htmlToPdf = require("html-pdf");
-
-/* DEV */
-const data = require("./sample_data.json");
 
 const getTemplate = (tempId) =>
   fs.readFileSync(`./templates/${tempId}.html`, "utf-8");
 
 function createResume(data) {
-  const template = getTemplate("template_001");
+  const template = getTemplate(data.tempId);
   const JSDOM = new jsdom.JSDOM(template);
   const document = JSDOM.window.document;
 
@@ -19,33 +15,34 @@ function createResume(data) {
     data["description"]
   );
 
-  setExperienceArticles(document, data["experience"]);
+  data["experience"].length != 0 &&
+    setExperienceArticles(document, data["experience"]);
 
-  setEducationArticles(document, data["education"]);
+  data["education"].length != 0 &&
+    setEducationArticles(document, data["education"]);
 
-  setAchievements(document, data["achivements"]);
+  data["achievements"].length != 0 &&
+    setAchievements(document, data["achivements"]);
+
+  data["projects"].length != 0 && setProjects(document, data["projects"]);
 
   setContacts(document, data["contact"]);
 
-  setSkills(document, data["skills"], "Skills");
+  data["skills"].length != 0 && setSkills(document, data["skills"], "Skills");
 
-  setSkills(document, data["software"], "Software");
+  data["software"].length != 0 &&
+    setSkills(document, data["software"], "Software");
 
-  setCourses(document, data["courses"]);
+  data["courses"].length != 0 && setCourses(document, data["courses"]);
 
-  setCertifications(document, data["certification"]);
+  data["certification"].length != 0 &&
+    setCertifications(document, data["certification"]);
 
-  setLanguages(document, data["languages"]);
+  data["languages"].length != 0 && setLanguages(document, data["languages"]);
 
   setResumeHeaderColor(document, data["color"]);
 
-  const html = document.documentElement.innerHTML;
-
-  console.log(html);
-
-  htmlToPdf.create(html, { format: "A4" }).toFile("./resume.pdf", (_, res) => {
-    console.log(res);
-  });
+  return document.documentElement.innerHTML;
 }
 
 function setResumeHeaderColor(document, color) {
@@ -146,6 +143,32 @@ function setExperienceArticles(document, data) {
 
     main.appendChild(article);
   }
+}
+
+function setProjects(document, data) {
+  const main = document.querySelector(".main");
+  appendH3Title(document, main, "Projects");
+
+  const article = document.createElement("article");
+  const ul = document.createElement("ul");
+
+  data.map((project) => {
+    const li = document.createElement("li");
+    const h5 = document.createElement("h6");
+    h5.textContent = project.title;
+    const a = document.createElement("a");
+    a.textContent = "demo";
+    a.setAttribute("href", project.link);
+    const p = document.createElement("p");
+    p.textContent = project.description;
+    li.appendChild(h5);
+    li.appendChild(a);
+    li.appendChild(p);
+    ul.appendChild(li);
+  });
+
+  article.appendChild(ul);
+  main.appendChild(article);
 }
 
 function setAchievements(document, data) {
@@ -268,4 +291,6 @@ function setCertifications(document, data) {
   appendUl(document, section, data);
 }
 
-createResume(data);
+module.exports = {
+  createResume: createResume,
+};
