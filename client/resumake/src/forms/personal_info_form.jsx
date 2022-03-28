@@ -48,6 +48,7 @@ const PersonalInfoForm = ({ state, stateHandler }) => {
         label="Website"
         placeholder="https://www.mark-twain.com"
         handleChange={stateHandler}
+        type="url"
         value={state["website"]}
       />
     </form>

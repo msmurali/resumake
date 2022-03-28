@@ -3,10 +3,13 @@ import React from "react";
 const TextInput = ({
   name,
   label,
-  required = false,
+  required,
   placeholder,
   handleChange,
   value,
+  type,
+  maxLength,
+  minLength,
 }) => {
   return (
     <React.Fragment>
@@ -16,9 +19,11 @@ const TextInput = ({
       >
         {label} {required && `*`}
         <input
-          required={required}
-          type="text"
+          required={required || false}
+          type={type || "text"}
           name={name}
+          maxLength={maxLength || 9999999}
+          minLength={minLength || 0}
           value={value}
           onChange={handleChange}
           placeholder={placeholder || ""}
