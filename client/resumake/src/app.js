@@ -1,5 +1,6 @@
 import React from "react";
 import "./app.css";
+import AchievementsForm from "./forms/achievements_form";
 import ContactForm from "./forms/contact_form";
 import EducationForm from "./forms/education_form";
 import PersonalInfoForm from "./forms/personal_info_form";
@@ -37,6 +38,12 @@ function App() {
       instituition: "",
       location: "",
       grade: "",
+    },
+  ]);
+
+  const [achievements, setAchievements] = React.useState([
+    {
+      achievement: "",
     },
   ]);
 
@@ -117,6 +124,26 @@ function App() {
     ]);
   };
 
+  const addAchievementField = () => {
+    setAchievements(() => [...achievements, { achievement: "" }]);
+  };
+
+  const deleteAchievementField = (id) => {
+    setAchievements(() => [
+      ...achievements.slice(0, id),
+      ...achievements.slice(id + 1),
+    ]);
+  };
+
+  const achievementsInfoHandler = (e, id) => {
+    const { name, value } = e.target;
+    setAchievements(() => {
+      const newState = [...achievements];
+      newState[id] = { ...newState[id], [name]: value };
+      return newState;
+    });
+  };
+
   return (
     <div className="app">
       <PersonalInfoForm
@@ -135,6 +162,12 @@ function App() {
         stateHandler={educationInfoHandler}
         addGroup={addEducationGroup}
         deleteGroup={deleteEducationGroup}
+      />
+      <AchievementsForm
+        state={achievements}
+        stateHandler={achievementsInfoHandler}
+        addField={addAchievementField}
+        deleteField={deleteAchievementField}
       />
     </div>
   );

@@ -3,7 +3,7 @@ import TextInput from "../widgets/text_input";
 
 const ContactForm = ({ state, stateHandler }) => {
   const submitHandler = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
   };
 
   return (
