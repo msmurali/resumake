@@ -2,8 +2,12 @@ import React from "react";
 import TextInput from "../widgets/text_input";
 
 const ContactForm = ({ state, stateHandler }) => {
+  const submitHandler = (e) => {
+    // e.preventDefault();
+  };
+
   return (
-    <form className="form mx-auto p-6">
+    <form className="form mx-auto p-6" onSubmit={submitHandler}>
       <TextInput
         name="mobile"
         value={state["mobile"]}

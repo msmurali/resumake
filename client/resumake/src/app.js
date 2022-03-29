@@ -47,6 +47,39 @@ function App() {
     }));
   };
 
+  const experienceInfoHandler = (e, id) => {
+    const { name, value } = e.target;
+    setExperience(() => {
+      const newState = [...experience];
+      newState[id] = { ...newState[id], [name]: value };
+      return newState;
+    });
+  };
+
+  const addExperienceGroup = () => {
+    setExperience(() => {
+      const newState = [
+        ...experience,
+        {
+          designation: "",
+          organization: "",
+          location: "",
+          "start-year": "",
+          "end-year": "",
+          description: "",
+        },
+      ];
+      return newState;
+    });
+  };
+
+  const deleteExperienceGroup = (id) => {
+    setExperience(() => [
+      ...experience.slice(0, id),
+      ...experience.slice(id + 1),
+    ]);
+  };
+
   return (
     <div className="app">
       <PersonalInfoForm
@@ -54,7 +87,12 @@ function App() {
         stateHandler={personalInfoHandler}
       />
       <ContactForm state={contact} stateHandler={contactInfoHandler} />
-      <WorkExperienceForm state={experience} />
+      <WorkExperienceForm
+        state={experience}
+        stateHandler={experienceInfoHandler}
+        addGroup={addExperienceGroup}
+        deleteGroup={deleteExperienceGroup}
+      />
     </div>
   );
 }
