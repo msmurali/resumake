@@ -1,6 +1,7 @@
 import React from "react";
 import "./app.css";
 import ContactForm from "./forms/contact_form";
+import EducationForm from "./forms/education_form";
 import PersonalInfoForm from "./forms/personal_info_form";
 import WorkExperienceForm from "./forms/work_experience_form";
 
@@ -30,6 +31,14 @@ function App() {
       description: "",
     },
   ]);
+  const [education, setEducation] = React.useState([
+    {
+      course: "",
+      instituition: "",
+      location: "",
+      grade: "",
+    },
+  ]);
 
   const personalInfoHandler = (e) => {
     const { name, value } = e.target;
@@ -56,6 +65,30 @@ function App() {
     });
   };
 
+  const educationInfoHandler = (e, id) => {
+    const { name, value } = e.target;
+    setEducation(() => {
+      const newState = [...education];
+      newState[id] = { ...newState[id], [name]: value };
+      return newState;
+    });
+  };
+
+  const addEducationGroup = () => {
+    setEducation(() => {
+      const newState = [
+        ...education,
+        {
+          course: "",
+          instituition: "",
+          location: "",
+          grade: "",
+        },
+      ];
+      return newState;
+    });
+  };
+
   const addExperienceGroup = () => {
     setExperience(() => {
       const newState = [
@@ -71,6 +104,10 @@ function App() {
       ];
       return newState;
     });
+  };
+
+  const deleteEducationGroup = (id) => {
+    setEducation(() => [...education.slice(0, id), ...education.slice(id + 1)]);
   };
 
   const deleteExperienceGroup = (id) => {
@@ -92,6 +129,12 @@ function App() {
         stateHandler={experienceInfoHandler}
         addGroup={addExperienceGroup}
         deleteGroup={deleteExperienceGroup}
+      />
+      <EducationForm
+        state={education}
+        stateHandler={educationInfoHandler}
+        addGroup={addEducationGroup}
+        deleteGroup={deleteEducationGroup}
       />
     </div>
   );
