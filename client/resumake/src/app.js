@@ -100,7 +100,7 @@ function App() {
   };
 
   const skillInfoHandler = (e, id) => {
-    const [name, value] = e.target;
+    const { name, value } = e.target;
     setSkills(() => {
       const newState = [...skills];
       newState[id] = { ...newState[id], [name]: value };
