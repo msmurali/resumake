@@ -4,7 +4,9 @@ import AchievementsForm from "./forms/achievements_form";
 import ContactForm from "./forms/contact_form";
 import EducationForm from "./forms/education_form";
 import PersonalInfoForm from "./forms/personal_info_form";
+import SkillsForm from "./forms/skills_form";
 import WorkExperienceForm from "./forms/work_experience_form";
+import RangeInput from "./widgets/range_input";
 
 function App() {
   const [personalInfo, setPersonalInfo] = React.useState({
@@ -47,6 +49,13 @@ function App() {
     },
   ]);
 
+  const [skills, setSkills] = React.useState([
+    {
+      skill: "",
+      proficiency: "1",
+    },
+  ]);
+
   const personalInfoHandler = (e) => {
     const { name, value } = e.target;
     setPersonalInfo(() => ({
@@ -76,6 +85,24 @@ function App() {
     const { name, value } = e.target;
     setEducation(() => {
       const newState = [...education];
+      newState[id] = { ...newState[id], [name]: value };
+      return newState;
+    });
+  };
+
+  const achievementsInfoHandler = (e, id) => {
+    const { name, value } = e.target;
+    setAchievements(() => {
+      const newState = [...achievements];
+      newState[id] = { ...newState[id], [name]: value };
+      return newState;
+    });
+  };
+
+  const skillInfoHandler = (e, id) => {
+    const [name, value] = e.target;
+    setSkills(() => {
+      const newState = [...skills];
       newState[id] = { ...newState[id], [name]: value };
       return newState;
     });
@@ -113,6 +140,20 @@ function App() {
     });
   };
 
+  const addAchievementField = () => {
+    setAchievements(() => [...achievements, { achievement: "" }]);
+  };
+
+  const addSkillField = () => {
+    setSkills(() => [
+      ...skills,
+      {
+        skill: "",
+        proficiency: "1",
+      },
+    ]);
+  };
+
   const deleteEducationGroup = (id) => {
     setEducation(() => [...education.slice(0, id), ...education.slice(id + 1)]);
   };
@@ -124,10 +165,6 @@ function App() {
     ]);
   };
 
-  const addAchievementField = () => {
-    setAchievements(() => [...achievements, { achievement: "" }]);
-  };
-
   const deleteAchievementField = (id) => {
     setAchievements(() => [
       ...achievements.slice(0, id),
@@ -135,18 +172,13 @@ function App() {
     ]);
   };
 
-  const achievementsInfoHandler = (e, id) => {
-    const { name, value } = e.target;
-    setAchievements(() => {
-      const newState = [...achievements];
-      newState[id] = { ...newState[id], [name]: value };
-      return newState;
-    });
+  const deleteSkillField = (id) => {
+    setSkills(() => [...skills.slice(0, id), ...skills.slice(id + 1)]);
   };
 
   return (
     <div className="app">
-      <PersonalInfoForm
+      {/* <PersonalInfoForm
         state={personalInfo}
         stateHandler={personalInfoHandler}
       />
@@ -168,6 +200,12 @@ function App() {
         stateHandler={achievementsInfoHandler}
         addField={addAchievementField}
         deleteField={deleteAchievementField}
+      /> */}
+      <SkillsForm
+        addField={addSkillField}
+        deleteField={deleteSkillField}
+        stateHandler={skillInfoHandler}
+        state={skills}
       />
     </div>
   );

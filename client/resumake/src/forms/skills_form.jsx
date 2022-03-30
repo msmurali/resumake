@@ -1,4 +1,5 @@
 import React from "react";
+import RangeInput from "../widgets/range_input";
 
 const SkillsForm = ({ state, stateHandler, addField, deleteField }) => {
   return (
@@ -36,6 +37,16 @@ const FormGroup = ({ data, changeHandler, deleteField, id }) => {
       required
       handleChange={(e) => changeHandler(e, id)}
       value={data["skill"]}
+    />
+    <RangeInput
+      min={1}
+      max={5}
+      step={1}
+      name="proficiency"
+      label="Proficiency"
+      value={data["proficiency"]}
+      handleChange={(e) => changeHandler(e, id)}
+      required={true}
     />
   </div>;
 };

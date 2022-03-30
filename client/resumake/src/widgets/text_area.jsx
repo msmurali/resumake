@@ -3,8 +3,8 @@ import React from "react";
 const TextArea = ({
   name,
   label,
-  required = false,
-  placeholder = "",
+  required,
+  placeholder,
   value,
   handleChange,
 }) => {
@@ -16,10 +16,11 @@ const TextArea = ({
       >
         {label} {required && `*`}
         <textarea
+          required={required || false}
           name={name}
           value={value}
           onChange={handleChange}
-          placeholder={placeholder}
+          placeholder={placeholder || ""}
           className="w-full text-base mt-1 border-2 border-gray-200 p-2 bg-gray-50 rounded-md outline-none focus:border-blue-600 block"
         />
       </label>
