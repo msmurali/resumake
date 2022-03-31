@@ -31,7 +31,7 @@ const Form = ({ title, state, stateHandler, addGroup, removeGroup }) => {
           type="button"
           className="bg-blue-600 text-white font-medium px-6 py-2 text-md rounded-md shadow-lg mt-4 mb-10 block mx-auto active:shadow-none"
         >
-          Add
+          {`Add ${title}`}
         </button>
       )}
     </form>

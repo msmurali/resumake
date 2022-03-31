@@ -3,79 +3,6 @@ import "./app.css";
 import Form from "./forms/form";
 
 function App() {
-  const [personal, setPersonal] = React.useState({
-    "first-name": "",
-    "last-name": "",
-    "full-name": "",
-    description: "",
-    address: "",
-    website: "",
-  });
-  const [contact, setContact] = React.useState({
-    mobile: "",
-    telephone: "",
-    "linked-in": "",
-    facebook: "",
-    email: "",
-  });
-  const [experience, setExperience] = React.useState([
-    {
-      designation: "",
-      organization: "",
-      location: "",
-      "start-year": "",
-      "end-year": "",
-      description: "",
-    },
-  ]);
-  const [education, setEducation] = React.useState([
-    {
-      course: "",
-      instituition: "",
-      location: "",
-      grade: "",
-    },
-  ]);
-  const [achievements, setAchievements] = React.useState([
-    {
-      achievement: "",
-    },
-  ]);
-  const [skills, setSkills] = React.useState([
-    {
-      skill: "",
-      proficiency: "1",
-    },
-  ]);
-  const [softwareSkills, setSoftwareSkills] = React.useState([
-    {
-      skill: "",
-      proficiency: "1",
-    },
-  ]);
-  const [languages, setLanguages] = React.useState([
-    {
-      language: "",
-    },
-  ]);
-  const [projects, setProjects] = React.useState([
-    {
-      title: "",
-      description: "",
-      link: "",
-    },
-  ]);
-  const [courses, setCourses] = React.useState([
-    {
-      course: "",
-    },
-  ]);
-  const [certification, setCertification] = React.useState([
-    {
-      certification: "",
-    },
-  ]);
-
   const addEmptyStateObject = (state) => {
     switch (state) {
       case "experience":
@@ -337,6 +264,39 @@ function App() {
         break;
     }
   };
+  const [personal, setPersonal] = React.useState(() =>
+    getEmptyStateObject("personal")
+  );
+  const [contact, setContact] = React.useState(() =>
+    getEmptyStateObject("contact")
+  );
+  const [experience, setExperience] = React.useState(() => [
+    getEmptyStateObject("experience"),
+  ]);
+  const [education, setEducation] = React.useState(() => [
+    getEmptyStateObject("education"),
+  ]);
+  const [achievements, setAchievements] = React.useState(() => [
+    getEmptyStateObject("achievements"),
+  ]);
+  const [skills, setSkills] = React.useState(() => [
+    getEmptyStateObject("skills"),
+  ]);
+  const [softwareSkills, setSoftwareSkills] = React.useState(() => [
+    getEmptyStateObject("software"),
+  ]);
+  const [languages, setLanguages] = React.useState(() => [
+    getEmptyStateObject("languages"),
+  ]);
+  const [projects, setProjects] = React.useState(() => [
+    getEmptyStateObject("projects"),
+  ]);
+  const [courses, setCourses] = React.useState(() => [
+    getEmptyStateObject("courses"),
+  ]);
+  const [certification, setCertification] = React.useState(() => [
+    getEmptyStateObject("certification"),
+  ]);
 
   return (
     <div className="app">
