@@ -1,16 +1,9 @@
 import React from "react";
 import "./app.css";
-import AchievementsForm from "./forms/achievements_form";
-import ContactForm from "./forms/contact_form";
-import EducationForm from "./forms/education_form";
-import PersonalInfoForm from "./forms/personal_info_form";
-import SkillsForm from "./forms/skills_form";
-import SoftwareSkillsForm from "./forms/software_skills_form";
-import WorkExperienceForm from "./forms/work_experience_form";
-import RangeInput from "./widgets/range_input";
+import Form from "./forms/form";
 
 function App() {
-  const [personalInfo, setPersonalInfo] = React.useState({
+  const [personal, setPersonal] = React.useState({
     "first-name": "",
     "last-name": "",
     "full-name": "",
@@ -77,7 +70,7 @@ function App() {
       course: "",
     },
   ]);
-  const [certifications, setCertifications] = React.useState([
+  const [certification, setCertification] = React.useState([
     {
       certification: "",
     },
@@ -98,7 +91,10 @@ function App() {
         setSkills(() => [...skills, getEmptyStateObject(state)]);
         break;
       case "software":
-        setSkills(() => [...softwareSkills, getEmptyStateObject(state)]);
+        setSoftwareSkills(() => [
+          ...softwareSkills,
+          getEmptyStateObject(state),
+        ]);
         break;
       case "languages":
         setLanguages(() => [...languages, getEmptyStateObject(state)]);
@@ -107,10 +103,7 @@ function App() {
         setCourses(() => [...courses, getEmptyStateObject(state)]);
         break;
       case "certification":
-        setCertifications(() => [
-          ...certifications,
-          getEmptyStateObject(state),
-        ]);
+        setCertification(() => [...certification, getEmptyStateObject(state)]);
         break;
       case "projects":
         setProjects(() => [...projects, getEmptyStateObject(state)]);
@@ -123,6 +116,10 @@ function App() {
   const removeStateObject = (state, id) => {
     switch (state) {
       case "experience":
+        setExperience(() => [
+          ...experience.slice(0, id),
+          ...experience.slice(id + 1),
+        ]);
         break;
       case "education":
         setEducation(() => [
@@ -155,9 +152,9 @@ function App() {
         setCourses(() => [...courses.slice(0, id), ...courses.slice(id + 1)]);
         break;
       case "certification":
-        setCertifications(() => [
-          ...certifications.slice(0, id),
-          ...certifications.slice(id + 1),
+        setCertification(() => [
+          ...certification.slice(0, id),
+          ...certification.slice(id + 1),
         ]);
         break;
       case "projects":
@@ -210,7 +207,7 @@ function App() {
         return {
           achievement: "",
         };
-      case "skill":
+      case "skills":
         return {
           skill: "",
           proficiency: "1",
@@ -228,7 +225,7 @@ function App() {
         return {
           course: "",
         };
-      case "certifications":
+      case "certification":
         return {
           certification: "",
         };
@@ -243,13 +240,13 @@ function App() {
         break;
     }
   };
-  const stateHandler = (e, state, { id }) => {
+  const stateHandler = (e, state, id) => {
     const { name, value } = e.target;
 
     switch (state) {
       case "personal":
-        setPersonalInfo({
-          ...personalInfo,
+        setPersonal({
+          ...personal,
           [name]: value,
         });
 
@@ -290,7 +287,7 @@ function App() {
 
         break;
 
-      case "skill":
+      case "skills":
         setSkills(() => {
           const newState = [...skills];
           newState[id] = { ...newState[id], [name]: value };
@@ -326,9 +323,9 @@ function App() {
 
         break;
 
-      case "certifications":
-        setCertifications(() => {
-          const newState = [...certifications];
+      case "certification":
+        setCertification(() => {
+          const newState = [...certification];
           newState[id] = { ...newState[id], [name]: value };
           return newState;
         });
@@ -340,167 +337,74 @@ function App() {
         break;
     }
   };
-  const personalInfoHandler = (e) => {
-    const { name, value } = e.target;
-    setPersonalInfo(() => ({
-      ...personalInfo,
-      [name]: value,
-    }));
-  };
-  const contactInfoHandler = (e) => {
-    const { name, value } = e.target;
-    setContact(() => ({
-      ...contact,
-      [name]: value,
-    }));
-  };
-  const experienceInfoHandler = (e, id) => {
-    const { name, value } = e.target;
-    setExperience(() => {
-      const newState = [...experience];
-      newState[id] = { ...newState[id], [name]: value };
-      return newState;
-    });
-  };
-  const educationInfoHandler = (e, id) => {
-    const { name, value } = e.target;
-    setEducation(() => {
-      const newState = [...education];
-      newState[id] = { ...newState[id], [name]: value };
-      return newState;
-    });
-  };
-  const achievementsInfoHandler = (e, id) => {
-    const { name, value } = e.target;
-    setAchievements(() => {
-      const newState = [...achievements];
-      newState[id] = { ...newState[id], [name]: value };
-      return newState;
-    });
-  };
-  const skillInfoHandler = (e, id) => {
-    const { name, value } = e.target;
-    setSkills(() => {
-      const newState = [...skills];
-      newState[id] = { ...newState[id], [name]: value };
-      return newState;
-    });
-  };
-  const softwareSkillsInfoHanlder = (e, id) => {
-    const { name, value } = e.target;
-    setSoftwareSkills(() => {
-      const newState = [...softwareSkills];
-      newState[id] = { ...newState[id], [name]: value };
-      return newState;
-    });
-  };
-  const addEducationGroup = () => {
-    setEducation(() => {
-      const newState = [
-        ...education,
-        {
-          course: "",
-          instituition: "",
-          location: "",
-          grade: "",
-        },
-      ];
-      return newState;
-    });
-  };
-  const addExperienceGroup = () => {
-    setExperience(() => {
-      const newState = [
-        ...experience,
-        {
-          designation: "",
-          organization: "",
-          location: "",
-          "start-year": "",
-          "end-year": "",
-          description: "",
-        },
-      ];
-      return newState;
-    });
-  };
-  const addAchievementField = () => {
-    setAchievements(() => [...achievements, { achievement: "" }]);
-  };
-  const addSkillField = () => {
-    setSkills(() => [
-      ...skills,
-      {
-        skill: "",
-        proficiency: "1",
-      },
-    ]);
-  };
-  const addSoftwareSkillField = () => {
-    setSoftwareSkills(() => [
-      ...softwareSkills,
-      {
-        skill: "",
-        proficiency: "1",
-      },
-    ]);
-  };
-  const deleteEducationGroup = (id) => {
-    setEducation(() => [...education.slice(0, id), ...education.slice(id + 1)]);
-  };
-  const deleteExperienceGroup = (id) => {
-    setExperience(() => [
-      ...experience.slice(0, id),
-      ...experience.slice(id + 1),
-    ]);
-  };
-  const deleteAchievementField = (id) => {
-    setAchievements(() => [
-      ...achievements.slice(0, id),
-      ...achievements.slice(id + 1),
-    ]);
-  };
-  const deleteSkillField = (id) => {
-    setSkills(() => [...skills.slice(0, id), ...skills.slice(id + 1)]);
-  };
-  const deleteSoftwareSkillField = (id) => {
-    setSoftwareSkills(() => [
-      ...softwareSkills.slice(0, id),
-      ...softwareSkills.slice(id + 1),
-    ]);
-  };
 
   return (
     <div className="app">
-      {/* <PersonalInfoForm
-        state={personalInfo}
-        stateHandler={personalInfoHandler}
-      />
-      <ContactForm state={contact} stateHandler={contactInfoHandler} />
-      <WorkExperienceForm
+      <Form state={personal} title={"personal"} stateHandler={stateHandler} />
+      <Form state={contact} title={"contact"} stateHandler={stateHandler} />
+      <Form
         state={experience}
-        stateHandler={experienceInfoHandler}
-        addGroup={addExperienceGroup}
-        deleteGroup={deleteExperienceGroup}
+        title={"experience"}
+        stateHandler={stateHandler}
+        addGroup={addEmptyStateObject}
+        removeGroup={removeStateObject}
       />
-      <EducationForm
+      <Form
         state={education}
-        stateHandler={educationInfoHandler}
-        addGroup={addEducationGroup}
-        deleteGroup={deleteEducationGroup}
+        title={"education"}
+        stateHandler={stateHandler}
+        addGroup={addEmptyStateObject}
+        removeGroup={removeStateObject}
       />
-      <AchievementsForm
+      <Form
         state={achievements}
-        stateHandler={achievementsInfoHandler}
-        addField={addAchievementField}
-        deleteField={deleteAchievementField}
-      /> 
-      <SkillsForm
-        addField={addSkillField}
-        deleteField={deleteSkillField}
-        stateHandler={skillInfoHandler}
+        title={"achievements"}
+        stateHandler={stateHandler}
+        addGroup={addEmptyStateObject}
+        removeGroup={removeStateObject}
+      />
+      <Form
         state={skills}
-      /> */}
+        title={"skills"}
+        stateHandler={stateHandler}
+        addGroup={addEmptyStateObject}
+        removeGroup={removeStateObject}
+      />
+      <Form
+        state={softwareSkills}
+        title={"software"}
+        stateHandler={stateHandler}
+        addGroup={addEmptyStateObject}
+        removeGroup={removeStateObject}
+      />
+      <Form
+        state={languages}
+        title={"languages"}
+        stateHandler={stateHandler}
+        addGroup={addEmptyStateObject}
+        removeGroup={removeStateObject}
+      />
+      <Form
+        state={projects}
+        title={"projects"}
+        stateHandler={stateHandler}
+        addGroup={addEmptyStateObject}
+        removeGroup={removeStateObject}
+      />
+      <Form
+        state={courses}
+        title={"courses"}
+        stateHandler={stateHandler}
+        addGroup={addEmptyStateObject}
+        removeGroup={removeStateObject}
+      />
+      <Form
+        state={certification}
+        title={"certification"}
+        stateHandler={stateHandler}
+        addGroup={addEmptyStateObject}
+        removeGroup={removeStateObject}
+      />
     </div>
   );
 }

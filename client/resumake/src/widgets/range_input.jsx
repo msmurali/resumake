@@ -29,7 +29,7 @@ const RangeInput = ({
           min={min || 0}
           onChange={handleChange}
           step={step || 1}
-          value={value || min || 0}
+          value={+value || +min || 0}
           className="slider block appearance-none mt-6"
         />
         <div className="flex justify-between items-center opacity-50">
