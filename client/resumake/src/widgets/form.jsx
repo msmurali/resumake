@@ -4,37 +4,45 @@ import Input from "./input";
 const Form = ({ title, state, stateHandler, addGroup, removeGroup }) => {
   const submitHandler = (e) => e.preventDefault();
   return (
-    <form className="form h-full p-6 overflow-y-auto" onSubmit={submitHandler}>
-      {!Array.isArray(state)
-        ? Object.keys(state).map((elem) => (
-            <Input
-              key={elem}
-              name={elem}
-              value={state[elem]}
-              changeHandler={(e) => stateHandler(e, title)}
-            />
-          ))
-        : state.map((obj, index) => {
-            return (
-              <FormGroup
-                data={obj}
-                id={index}
-                stateHandler={(e) => stateHandler(e, title, index)}
-                removeGroup={() => removeGroup(title, index)}
-                key={`${index}-${title}`}
+    <React.Fragment>
+      <form
+        className="form h-full p-6 overflow-y-auto"
+        onSubmit={submitHandler}
+      >
+        <h1 className="text-center text-2xl font-medium font-body">
+          {`${title.slice(0, 1).toUpperCase()}${title.slice(1)}`}
+        </h1>
+        {!Array.isArray(state)
+          ? Object.keys(state).map((elem) => (
+              <Input
+                key={elem}
+                name={elem}
+                value={state[elem]}
+                changeHandler={(e) => stateHandler(e, title)}
               />
-            );
-          })}
-      {Array.isArray(state) && (
-        <button
-          onClick={() => addGroup(title)}
-          type="button"
-          className="bg-blue-600 text-white font-medium px-6 py-2 text-md rounded-md shadow-lg mt-4 mb-10 block mx-auto active:shadow-none"
-        >
-          {`Add ${title}`}
-        </button>
-      )}
-    </form>
+            ))
+          : state.map((obj, index) => {
+              return (
+                <FormGroup
+                  data={obj}
+                  id={index}
+                  stateHandler={(e) => stateHandler(e, title, index)}
+                  removeGroup={() => removeGroup(title, index)}
+                  key={`${index}-${title}`}
+                />
+              );
+            })}
+        {Array.isArray(state) && (
+          <button
+            onClick={() => addGroup(title)}
+            type="button"
+            className="bg-blue-600 text-white font-medium px-6 py-2 text-md rounded-md shadow-lg mt-4 mb-10 block mx-auto active:shadow-none"
+          >
+            {`Add ${title}`}
+          </button>
+        )}
+      </form>
+    </React.Fragment>
   );
 };
 

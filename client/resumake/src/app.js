@@ -326,8 +326,8 @@ function App() {
       case 3:
         return (
           <Form
-            state={experience}
-            title={"experience"}
+            state={education}
+            title={"education"}
             stateHandler={stateHandler}
             addGroup={addEmptyStateObject}
             removeGroup={removeStateObject}
@@ -336,8 +336,8 @@ function App() {
       case 4:
         return (
           <Form
-            state={education}
-            title={"education"}
+            state={experience}
+            title={"experience"}
             stateHandler={stateHandler}
             addGroup={addEmptyStateObject}
             removeGroup={removeStateObject}
@@ -356,44 +356,15 @@ function App() {
       case 6:
         return (
           <Form
-            state={skills}
-            title={"skills"}
+            state={certification}
+            title={"certification"}
             stateHandler={stateHandler}
             addGroup={addEmptyStateObject}
             removeGroup={removeStateObject}
           />
         );
+
       case 7:
-        return (
-          <Form
-            state={softwareSkills}
-            title={"software"}
-            stateHandler={stateHandler}
-            addGroup={addEmptyStateObject}
-            removeGroup={removeStateObject}
-          />
-        );
-      case 8:
-        return (
-          <Form
-            state={languages}
-            title={"languages"}
-            stateHandler={stateHandler}
-            addGroup={addEmptyStateObject}
-            removeGroup={removeStateObject}
-          />
-        );
-      case 9:
-        return (
-          <Form
-            state={projects}
-            title={"projects"}
-            stateHandler={stateHandler}
-            addGroup={addEmptyStateObject}
-            removeGroup={removeStateObject}
-          />
-        );
-      case 10:
         return (
           <Form
             state={courses}
@@ -403,11 +374,42 @@ function App() {
             removeGroup={removeStateObject}
           />
         );
+
+      case 8:
+        return (
+          <Form
+            state={projects}
+            title={"projects"}
+            stateHandler={stateHandler}
+            addGroup={addEmptyStateObject}
+            removeGroup={removeStateObject}
+          />
+        );
+      case 9:
+        return (
+          <Form
+            state={skills}
+            title={"skills"}
+            stateHandler={stateHandler}
+            addGroup={addEmptyStateObject}
+            removeGroup={removeStateObject}
+          />
+        );
+      case 10:
+        return (
+          <Form
+            state={softwareSkills}
+            title={"software"}
+            stateHandler={stateHandler}
+            addGroup={addEmptyStateObject}
+            removeGroup={removeStateObject}
+          />
+        );
       case 11:
         return (
           <Form
-            state={certification}
-            title={"certification"}
+            state={languages}
+            title={"languages"}
             stateHandler={stateHandler}
             addGroup={addEmptyStateObject}
             removeGroup={removeStateObject}
