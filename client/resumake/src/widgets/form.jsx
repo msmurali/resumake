@@ -1,5 +1,5 @@
 import React from "react";
-import Input from "../widgets/input";
+import Input from "./input";
 
 const Form = ({ title, state, stateHandler, addGroup, removeGroup }) => {
   const submitHandler = (e) => e.preventDefault();

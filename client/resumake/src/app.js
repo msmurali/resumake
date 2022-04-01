@@ -1,6 +1,7 @@
 import React from "react";
 import "./app.css";
-import Form from "./forms/form";
+import Form from "./widgets/form";
+import Nav from "./widgets/nav";
 
 function App() {
   const addEmptyStateObject = (state) => {
@@ -264,6 +265,7 @@ function App() {
         break;
     }
   };
+
   const [personal, setPersonal] = React.useState(() =>
     getEmptyStateObject("personal")
   );
@@ -300,7 +302,8 @@ function App() {
 
   return (
     <div className="app">
-      <Form state={personal} title={"personal"} stateHandler={stateHandler} />
+      <Nav step={1} />
+      {/* <Form state={personal} title={"personal"} stateHandler={stateHandler} />
       <Form state={contact} title={"contact"} stateHandler={stateHandler} />
       <Form
         state={experience}
@@ -364,7 +367,7 @@ function App() {
         stateHandler={stateHandler}
         addGroup={addEmptyStateObject}
         removeGroup={removeStateObject}
-      />
+      /> */}
     </div>
   );
 }
