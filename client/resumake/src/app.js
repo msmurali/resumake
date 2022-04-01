@@ -309,74 +309,117 @@ function App() {
     if (step > 1) setStep(() => step - 1);
   };
 
+  const getFormComponent = () => {
+    switch (step) {
+      case 1:
+        return (
+          <Form
+            state={personal}
+            title={"personal"}
+            stateHandler={stateHandler}
+          />
+        );
+      case 2:
+        return (
+          <Form state={contact} title={"contact"} stateHandler={stateHandler} />
+        );
+      case 3:
+        return (
+          <Form
+            state={experience}
+            title={"experience"}
+            stateHandler={stateHandler}
+            addGroup={addEmptyStateObject}
+            removeGroup={removeStateObject}
+          />
+        );
+      case 4:
+        return (
+          <Form
+            state={education}
+            title={"education"}
+            stateHandler={stateHandler}
+            addGroup={addEmptyStateObject}
+            removeGroup={removeStateObject}
+          />
+        );
+      case 5:
+        return (
+          <Form
+            state={achievements}
+            title={"achievements"}
+            stateHandler={stateHandler}
+            addGroup={addEmptyStateObject}
+            removeGroup={removeStateObject}
+          />
+        );
+      case 6:
+        return (
+          <Form
+            state={skills}
+            title={"skills"}
+            stateHandler={stateHandler}
+            addGroup={addEmptyStateObject}
+            removeGroup={removeStateObject}
+          />
+        );
+      case 7:
+        return (
+          <Form
+            state={softwareSkills}
+            title={"software"}
+            stateHandler={stateHandler}
+            addGroup={addEmptyStateObject}
+            removeGroup={removeStateObject}
+          />
+        );
+      case 8:
+        return (
+          <Form
+            state={languages}
+            title={"languages"}
+            stateHandler={stateHandler}
+            addGroup={addEmptyStateObject}
+            removeGroup={removeStateObject}
+          />
+        );
+      case 9:
+        return (
+          <Form
+            state={projects}
+            title={"projects"}
+            stateHandler={stateHandler}
+            addGroup={addEmptyStateObject}
+            removeGroup={removeStateObject}
+          />
+        );
+      case 10:
+        return (
+          <Form
+            state={courses}
+            title={"courses"}
+            stateHandler={stateHandler}
+            addGroup={addEmptyStateObject}
+            removeGroup={removeStateObject}
+          />
+        );
+      case 11:
+        return (
+          <Form
+            state={certification}
+            title={"certification"}
+            stateHandler={stateHandler}
+            addGroup={addEmptyStateObject}
+            removeGroup={removeStateObject}
+          />
+        );
+    }
+  };
+
   return (
-    <div className="app">
+    <div className="app md:grid grid-cols-page-layout grid-rows-1 md:max-h-screen">
       <Nav step={step} setStep={setStep} />
-      {/* <Form state={personal} title={"personal"} stateHandler={stateHandler} />
-      <Form state={contact} title={"contact"} stateHandler={stateHandler} />
-      <Form
-        state={experience}
-        title={"experience"}
-        stateHandler={stateHandler}
-        addGroup={addEmptyStateObject}
-        removeGroup={removeStateObject}
-      />
-      <Form
-        state={education}
-        title={"education"}
-        stateHandler={stateHandler}
-        addGroup={addEmptyStateObject}
-        removeGroup={removeStateObject}
-      />
-      <Form
-        state={achievements}
-        title={"achievements"}
-        stateHandler={stateHandler}
-        addGroup={addEmptyStateObject}
-        removeGroup={removeStateObject}
-      />
-      <Form
-        state={skills}
-        title={"skills"}
-        stateHandler={stateHandler}
-        addGroup={addEmptyStateObject}
-        removeGroup={removeStateObject}
-      />
-      <Form
-        state={softwareSkills}
-        title={"software"}
-        stateHandler={stateHandler}
-        addGroup={addEmptyStateObject}
-        removeGroup={removeStateObject}
-      />
-      <Form
-        state={languages}
-        title={"languages"}
-        stateHandler={stateHandler}
-        addGroup={addEmptyStateObject}
-        removeGroup={removeStateObject}
-      />
-      <Form
-        state={projects}
-        title={"projects"}
-        stateHandler={stateHandler}
-        addGroup={addEmptyStateObject}
-        removeGroup={removeStateObject}
-      />
-      <Form
-        state={courses}
-        title={"courses"}
-        stateHandler={stateHandler}
-        addGroup={addEmptyStateObject}
-        removeGroup={removeStateObject}
-      />
-      <Form
-        state={certification}
-        title={"certification"}
-        stateHandler={stateHandler}
-        addGroup={addEmptyStateObject}
-        removeGroup={removeStateObject}
-      /> */}
+      {getFormComponent()}
     </div>
   );
 }

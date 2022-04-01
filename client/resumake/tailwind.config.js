@@ -5,6 +5,9 @@ module.exports = {
       gridTemplateRows: {
         "nav-layout": "min-content 1fr",
       },
+      gridTemplateColumns: {
+        "page-layout": "min-content 1fr",
+      },
       fontFamily: {
         body: [
           "Poppins",

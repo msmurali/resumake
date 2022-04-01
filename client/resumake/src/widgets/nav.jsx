@@ -15,7 +15,7 @@ import {
 
 const Nav = ({ step, setStep }) => {
   return (
-    <header className="bg-blue-700 font-body grid w-full md:w-min md:min-h-screen grid-rows-nav-layout md:px-4">
+    <header className="bg-blue-700 font-body grid w-full md:w-min md:h-screen overflow-y-auto grid-rows-nav-layout md:px-4">
       <h1 className="text-xl font-medium p-6 pb-0 text-white">Resumake</h1>
       <nav className="w-full p-6 flex justify-between items-center md:flex-col">
         <div

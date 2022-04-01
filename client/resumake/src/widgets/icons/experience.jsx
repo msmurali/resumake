@@ -18,14 +18,14 @@ const ExperienceIcon = ({ color, width, height }) => {
         fill={color}
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M38.7739 22.2192H38.718V41.5516L33.091 41.5515V24.7734L24.7548 24.7732V19.0321L38.7739 14.6496V22.2192ZM30.525 20.5576H27.256V23.2473H30.525V20.5576ZM36.3014 20.5576H33.0324V23.2473H36.3014V20.5576Z"
         fill={color}
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M31.61 41.5515L17.2213 41.5513V25.9916L31.61 25.9919L31.61 41.5515ZM23.1619 30.0008H19.8929V32.6905H23.1619V30.0008ZM28.9384 30.0008H25.6694V32.6905H28.9384V30.0008ZM23.1619 34.8526H19.8929V37.5423H23.1619V34.8526ZM28.9384 34.8526H25.6694V37.5423H28.9384V34.8526Z"
         fill={color}
       />

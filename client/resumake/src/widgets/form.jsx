@@ -4,7 +4,7 @@ import Input from "./input";
 const Form = ({ title, state, stateHandler, addGroup, removeGroup }) => {
   const submitHandler = (e) => e.preventDefault();
   return (
-    <form className="form mx-auto p-6" onSubmit={submitHandler}>
+    <form className="form h-full p-6 overflow-y-auto" onSubmit={submitHandler}>
       {!Array.isArray(state)
         ? Object.keys(state).map((elem) => (
             <Input
