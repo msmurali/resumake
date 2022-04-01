@@ -22,3 +22,5 @@ const ProjectsIcon = ({ color, height, width }) => {
     </svg>
   );
 };
+
+export default ProjectsIcon;

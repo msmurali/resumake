@@ -1,50 +1,180 @@
 import React from "react";
+import {
+  AchievementsIcon,
+  CertificationIcon,
+  CoursesIcon,
+  ContactIcon,
+  EducationIcon,
+  ExperienceIcon,
+  LanguagesIcon,
+  PersonalIcon,
+  ProjectsIcon,
+  SkillsIcon,
+  SoftwareIcon,
+} from "./icons/icons";
 
 const Nav = ({ step }) => {
   return (
-    <nav className="w-full p-6 flex">
-      <ProfileIcon color="#000000E5" height={56} width={56} />
-      <ContactIcon color="#000000E5" height={56} width={56} />
-    </nav>
+    <header className="bg-blue-700 font-body grid w-full md:w-min md:min-h-screen grid-rows-nav-layout md:px-4">
+      <h1 className="text-xl font-medium p-6 pb-0 text-white">Resumake</h1>
+      <nav className="w-full p-6 flex justify-between items-center md:flex-col">
+        <div className="flex w-full items-center justify-start cursor-pointer md:py-2">
+          <PersonalIcon
+            color={step == 1 ? "#ffffff" : "#6E9CFF"}
+            height={24}
+            width={24}
+          />
+          <p
+            className={`hidden md:inline-block pl-3 text-sm ${
+              step == 1 ? "text-white" : "text-blue-400"
+            }`}
+          >
+            Personal
+          </p>
+        </div>
+        <div className="flex w-full items-center justify-start cursor-pointer md:py-2">
+          <ContactIcon
+            color={step == 2 ? "#ffffff" : "#6E9CFF"}
+            height={24}
+            width={24}
+          />
+          <p
+            className={`hidden md:inline-block pl-3 text-sm ${
+              step == 2 ? "text-white" : "text-blue-400"
+            }`}
+          >
+            Contact
+          </p>
+        </div>
+        <div className="flex w-full items-center justify-start cursor-pointer md:py-2">
+          <EducationIcon
+            color={step == 3 ? "#ffffff" : "#6E9CFF"}
+            height={24}
+            width={24}
+          />
+          <p
+            className={`hidden md:inline-block pl-3 text-sm ${
+              step == 3 ? "text-white" : "text-blue-400"
+            }`}
+          >
+            Education
+          </p>
+        </div>
+        <div className="flex w-full items-center justify-start cursor-pointer md:py-2">
+          <ExperienceIcon
+            color={step == 4 ? "#ffffff" : "#6E9CFF"}
+            height={24}
+            width={24}
+          />
+          <p
+            className={`hidden md:inline-block pl-3 text-sm ${
+              step == 4 ? "text-white" : "text-blue-400"
+            }`}
+          >
+            Education
+          </p>
+        </div>
+        <div className="flex w-full items-center justify-start cursor-pointer md:py-2">
+          <AchievementsIcon
+            color={step == 5 ? "#ffffff" : "#6E9CFF"}
+            height={24}
+            width={24}
+          />
+          <p
+            className={`hidden md:inline-block pl-3 text-sm ${
+              step == 5 ? "text-white" : "text-blue-400"
+            }`}
+          >
+            Achievements
+          </p>
+        </div>
+        <div className="flex w-full items-center justify-start cursor-pointer md:py-2">
+          <CertificationIcon
+            color={step == 6 ? "#ffffff" : "#6E9CFF"}
+            height={24}
+            width={24}
+          />
+          <p
+            className={`hidden md:inline-block pl-3 text-sm ${
+              step == 6 ? "text-white" : "text-blue-400"
+            }`}
+          >
+            Certification
+          </p>
+        </div>
+        <div className="flex w-full items-center justify-start cursor-pointer md:py-2">
+          <CoursesIcon
+            color={step == 7 ? "#ffffff" : "#6E9CFF"}
+            height={24}
+            width={24}
+          />
+          <p
+            className={`hidden md:inline-block pl-3 text-sm ${
+              step == 7 ? "text-white" : "text-blue-400"
+            }`}
+          >
+            Courses
+          </p>
+        </div>
+        <div className="flex w-full items-center justify-start cursor-pointer md:py-2">
+          <ProjectsIcon
+            color={step == 8 ? "#ffffff" : "#6E9CFF"}
+            height={24}
+            width={24}
+          />
+          <p
+            className={`hidden md:inline-block pl-3 text-sm ${
+              step == 8 ? "text-white" : "text-blue-400"
+            }`}
+          >
+            Projects
+          </p>
+        </div>
+        <div className="flex w-full items-center justify-start cursor-pointer md:py-2">
+          <SkillsIcon
+            color={step == 9 ? "#ffffff" : "#6E9CFF"}
+            height={24}
+            width={24}
+          />
+          <p
+            className={`hidden md:inline-block pl-3 text-sm ${
+              step == 9 ? "text-white" : "text-blue-400"
+            }`}
+          >
+            Skills
+          </p>
+        </div>
+        <div className="flex w-full items-center justify-start cursor-pointer md:py-2">
+          <SoftwareIcon
+            color={step == 10 ? "#ffffff" : "#6E9CFF"}
+            height={24}
+            width={24}
+          />
+          <p
+            className={`hidden md:inline-block pl-3 text-sm ${
+              step == 10 ? "text-white" : "text-blue-400"
+            }`}
+          >
+            Software
+          </p>
+        </div>
+        <div className="flex w-full items-center justify-start cursor-pointer md:py-2">
+          <LanguagesIcon
+            color={step == 11 ? "#ffffff" : "#6E9CFF"}
+            height={24}
+            width={24}
+          />
+          <p
+            className={`hidden md:inline-block pl-3 text-sm ${
+              step == 11 ? "text-white" : "text-blue-400"
+            }`}
+          >
+            Languages
+          </p>
+        </div>
+      </nav>
+    </header>
   );
 };
 
 export default Nav;
-
-const ProfileIcon = ({ color, height, width }) => {
-  return (
-    <svg
-      version="1.1"
-      id="Layer_1"
-      xmlns="http://www.w3.org/2000/svg"
-      x="0px"
-      y="0px"
-      width={width}
-      height={height}
-      viewBox="0 0 512 512"
-      enableBackground="new 0 0 512 512"
-    >
-      <g id="user">
-        <g>
-          <path
-            fill={color}
-            d="M256.167,277.721c-55.4,0-100.471-45.071-100.471-100.471S200.767,76.779,256.167,76.779
-			c55.4,0,100.471,45.071,100.471,100.471S311.567,277.721,256.167,277.721z"
-          />
-        </g>
-        <g>
-          <path
-            fill={color}
-            d="M437.19,74.98C388.83,26.63,324.55,0,256.17,0S123.5,26.63,75.15,74.98S0.17,187.62,0.17,256S26.8,388.67,75.15,437.02
-			C123.5,485.37,187.79,512,256.17,512s132.66-26.63,181.021-74.98C485.54,388.67,512.17,324.38,512.17,256
-			S485.54,123.33,437.19,74.98z M69.31,399.37C38.75,359.63,20.55,309.9,20.55,256c0-129.92,105.7-235.62,235.62-235.62
-			S491.78,126.08,491.78,256c0,53.92-18.2,103.67-48.79,143.42c-7.58-25.359-26.88-48-56.183-65.311
-			c-35.407-20.92-82.02-32.439-131.24-32.439c-49.16,0-95.57,11.521-130.68,32.46C95.91,351.41,76.82,374.01,69.31,399.37z"
-          />
-        </g>
-      </g>
-    </svg>
-  );
-};
-
-const ContactIcon = ({ color, height, width }) => {};
