@@ -266,6 +266,7 @@ function App() {
     }
   };
 
+  const [step, setStep] = React.useState(1);
   const [personal, setPersonal] = React.useState(() =>
     getEmptyStateObject("personal")
   );
@@ -300,9 +301,17 @@ function App() {
     getEmptyStateObject("certification"),
   ]);
 
+  const incrementStep = () => {
+    if (step < 11) setStep(() => step + 1);
+  };
+
+  const decrementStep = () => {
+    if (step > 1) setStep(() => step - 1);
+  };
+
   return (
     <div className="app">
-      <Nav step={1} />
+      <Nav step={step} setStep={setStep} />
       {/* <Form state={personal} title={"personal"} stateHandler={stateHandler} />
       <Form state={contact} title={"contact"} stateHandler={stateHandler} />
       <Form
