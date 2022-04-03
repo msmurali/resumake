@@ -415,6 +415,14 @@ function App() {
             removeGroup={removeStateObject}
           />
         );
+      default:
+        return (
+          <Form
+            state={personal}
+            title={"personal"}
+            stateHandler={stateHandler}
+          />
+        );
     }
   };
 

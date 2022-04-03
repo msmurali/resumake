@@ -25,13 +25,13 @@ const Nav = ({ step, setStep }) => {
           onClick={() => setStep(1)}
         >
           <PersonalIcon
-            color={step == 1 ? "#ffffff" : "#6E9CFF"}
+            color={step === 1 ? "#ffffff" : "#6E9CFF"}
             height={24}
             width={24}
           />
           <p
             className={`hidden md:inline-block pl-3 text-sm ${
-              step == 1 ? "text-white" : "text-blue-400"
+              step === 1 ? "text-white" : "text-blue-400"
             }`}
           >
             Personal
@@ -42,13 +42,13 @@ const Nav = ({ step, setStep }) => {
           onClick={() => setStep(2)}
         >
           <ContactIcon
-            color={step == 2 ? "#ffffff" : "#6E9CFF"}
+            color={step === 2 ? "#ffffff" : "#6E9CFF"}
             height={24}
             width={24}
           />
           <p
             className={`hidden md:inline-block pl-3 text-sm ${
-              step == 2 ? "text-white" : "text-blue-400"
+              step === 2 ? "text-white" : "text-blue-400"
             }`}
           >
             Contact
@@ -59,13 +59,13 @@ const Nav = ({ step, setStep }) => {
           onClick={() => setStep(3)}
         >
           <EducationIcon
-            color={step == 3 ? "#ffffff" : "#6E9CFF"}
+            color={step === 3 ? "#ffffff" : "#6E9CFF"}
             height={24}
             width={24}
           />
           <p
             className={`hidden md:inline-block pl-3 text-sm ${
-              step == 3 ? "text-white" : "text-blue-400"
+              step === 3 ? "text-white" : "text-blue-400"
             }`}
           >
             Education
@@ -76,13 +76,13 @@ const Nav = ({ step, setStep }) => {
           onClick={() => setStep(4)}
         >
           <ExperienceIcon
-            color={step == 4 ? "#ffffff" : "#6E9CFF"}
+            color={step === 4 ? "#ffffff" : "#6E9CFF"}
             height={24}
             width={24}
           />
           <p
             className={`hidden md:inline-block pl-3 text-sm ${
-              step == 4 ? "text-white" : "text-blue-400"
+              step === 4 ? "text-white" : "text-blue-400"
             }`}
           >
             Experience
@@ -93,13 +93,13 @@ const Nav = ({ step, setStep }) => {
           onClick={() => setStep(5)}
         >
           <AchievementsIcon
-            color={step == 5 ? "#ffffff" : "#6E9CFF"}
+            color={step === 5 ? "#ffffff" : "#6E9CFF"}
             height={24}
             width={24}
           />
           <p
             className={`hidden md:inline-block pl-3 text-sm ${
-              step == 5 ? "text-white" : "text-blue-400"
+              step === 5 ? "text-white" : "text-blue-400"
             }`}
           >
             Achievements
@@ -110,13 +110,13 @@ const Nav = ({ step, setStep }) => {
           onClick={() => setStep(6)}
         >
           <CertificationIcon
-            color={step == 6 ? "#ffffff" : "#6E9CFF"}
+            color={step === 6 ? "#ffffff" : "#6E9CFF"}
             height={24}
             width={24}
           />
           <p
             className={`hidden md:inline-block pl-3 text-sm ${
-              step == 6 ? "text-white" : "text-blue-400"
+              step === 6 ? "text-white" : "text-blue-400"
             }`}
           >
             Certification
@@ -127,13 +127,13 @@ const Nav = ({ step, setStep }) => {
           onClick={() => setStep(7)}
         >
           <CoursesIcon
-            color={step == 7 ? "#ffffff" : "#6E9CFF"}
+            color={step === 7 ? "#ffffff" : "#6E9CFF"}
             height={24}
             width={24}
           />
           <p
             className={`hidden md:inline-block pl-3 text-sm ${
-              step == 7 ? "text-white" : "text-blue-400"
+              step === 7 ? "text-white" : "text-blue-400"
             }`}
           >
             Courses
@@ -144,13 +144,13 @@ const Nav = ({ step, setStep }) => {
           onClick={() => setStep(8)}
         >
           <ProjectsIcon
-            color={step == 8 ? "#ffffff" : "#6E9CFF"}
+            color={step === 8 ? "#ffffff" : "#6E9CFF"}
             height={24}
             width={24}
           />
           <p
             className={`hidden md:inline-block pl-3 text-sm ${
-              step == 8 ? "text-white" : "text-blue-400"
+              step === 8 ? "text-white" : "text-blue-400"
             }`}
           >
             Projects
@@ -161,13 +161,13 @@ const Nav = ({ step, setStep }) => {
           onClick={() => setStep(9)}
         >
           <SkillsIcon
-            color={step == 9 ? "#ffffff" : "#6E9CFF"}
+            color={step === 9 ? "#ffffff" : "#6E9CFF"}
             height={24}
             width={24}
           />
           <p
             className={`hidden md:inline-block pl-3 text-sm ${
-              step == 9 ? "text-white" : "text-blue-400"
+              step === 9 ? "text-white" : "text-blue-400"
             }`}
           >
             Skills
@@ -178,13 +178,13 @@ const Nav = ({ step, setStep }) => {
           onClick={() => setStep(10)}
         >
           <SoftwareIcon
-            color={step == 10 ? "#ffffff" : "#6E9CFF"}
+            color={step === 10 ? "#ffffff" : "#6E9CFF"}
             height={24}
             width={24}
           />
           <p
             className={`hidden md:inline-block pl-3 text-sm ${
-              step == 10 ? "text-white" : "text-blue-400"
+              step === 10 ? "text-white" : "text-blue-400"
             }`}
           >
             Software
@@ -195,13 +195,13 @@ const Nav = ({ step, setStep }) => {
           onClick={() => setStep(11)}
         >
           <LanguagesIcon
-            color={step == 11 ? "#ffffff" : "#6E9CFF"}
+            color={step === 11 ? "#ffffff" : "#6E9CFF"}
             height={24}
             width={24}
           />
           <p
             className={`hidden md:inline-block pl-3 text-sm ${
-              step == 11 ? "text-white" : "text-blue-400"
+              step === 11 ? "text-white" : "text-blue-400"
             }`}
           >
             Languages

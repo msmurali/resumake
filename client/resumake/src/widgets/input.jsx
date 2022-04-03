@@ -41,6 +41,17 @@ const Input = ({ name, value, changeHandler }) => {
           step={1}
         />
       );
+    default:
+      return (
+        <TextInput
+          name={name}
+          value={value}
+          handleChange={changeHandler}
+          label={input[name].label}
+          placeholder={input[name].placeholder}
+          required={input[name].required}
+        />
+      );
   }
 };
 

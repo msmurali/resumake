@@ -37,3 +37,9 @@ function hasSpecialChars(text) {
 function isEmpty(text) {
   return text.length === 0;
 }
+
+function isValidUrl(text) {}
+
+function isValidEmail(text) {}
+
+function isValidYear(text) {}
