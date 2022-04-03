@@ -9,7 +9,7 @@ const Form = ({ title, state, stateHandler, addGroup, removeGroup }) => {
         className="form h-full p-6 overflow-y-auto"
         onSubmit={submitHandler}
       >
-        <h1 className="text-center text-2xl font-medium font-body">
+        <h1 className="text-center text-2xl font-medium py-3 font-body">
           {`${title.slice(0, 1).toUpperCase()}${title.slice(1)}`}
         </h1>
         {!Array.isArray(state)

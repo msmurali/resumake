@@ -16,8 +16,10 @@ import {
 const Nav = ({ step, setStep }) => {
   return (
     <header className="bg-blue-700 font-body grid w-full md:w-min md:h-screen overflow-y-auto grid-rows-nav-layout md:px-8">
-      <h1 className="text-xl font-medium p-6 pb-0 text-white">Resumake</h1>
-      <nav className="w-full p-6 flex justify-between items-center md:flex-col">
+      <h1 className="text-xl font-medium p-6 pb-0 text-white text-center md:text-left">
+        Resumake
+      </h1>
+      <nav className="w-full px-2 py-6 md:px-6  flex justify-between items-center md:flex-col">
         <div
           className="flex w-full items-center justify-start cursor-pointer md:py-2 "
           onClick={() => setStep(1)}
@@ -83,7 +85,7 @@ const Nav = ({ step, setStep }) => {
               step == 4 ? "text-white" : "text-blue-400"
             }`}
           >
-            Education
+            Experience
           </p>
         </div>
         <div
