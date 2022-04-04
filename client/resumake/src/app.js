@@ -314,113 +314,153 @@ function App() {
       case 1:
         return (
           <Form
+            step={step}
             state={personal}
             title={"personal"}
             stateHandler={stateHandler}
+            incrementStep={incrementStep}
+            decrementStep={decrementStep}
           />
         );
       case 2:
         return (
-          <Form state={contact} title={"contact"} stateHandler={stateHandler} />
+          <Form
+            step={step}
+            state={contact}
+            title={"contact"}
+            stateHandler={stateHandler}
+            incrementStep={incrementStep}
+            decrementStep={decrementStep}
+          />
         );
       case 3:
         return (
           <Form
+            step={step}
             state={education}
             title={"education"}
             stateHandler={stateHandler}
             addGroup={addEmptyStateObject}
             removeGroup={removeStateObject}
+            incrementStep={incrementStep}
+            decrementStep={decrementStep}
           />
         );
       case 4:
         return (
           <Form
+            step={step}
             state={experience}
             title={"experience"}
             stateHandler={stateHandler}
             addGroup={addEmptyStateObject}
             removeGroup={removeStateObject}
+            incrementStep={incrementStep}
+            decrementStep={decrementStep}
           />
         );
       case 5:
         return (
           <Form
+            step={step}
             state={achievements}
             title={"achievements"}
             stateHandler={stateHandler}
             addGroup={addEmptyStateObject}
             removeGroup={removeStateObject}
+            incrementStep={incrementStep}
+            decrementStep={decrementStep}
           />
         );
       case 6:
         return (
           <Form
+            step={step}
             state={certification}
             title={"certification"}
             stateHandler={stateHandler}
             addGroup={addEmptyStateObject}
             removeGroup={removeStateObject}
+            incrementStep={incrementStep}
+            decrementStep={decrementStep}
           />
         );
 
       case 7:
         return (
           <Form
+            step={step}
             state={courses}
             title={"courses"}
             stateHandler={stateHandler}
             addGroup={addEmptyStateObject}
             removeGroup={removeStateObject}
+            incrementStep={incrementStep}
+            decrementStep={decrementStep}
           />
         );
 
       case 8:
         return (
           <Form
+            step={step}
             state={projects}
             title={"projects"}
             stateHandler={stateHandler}
             addGroup={addEmptyStateObject}
             removeGroup={removeStateObject}
+            incrementStep={incrementStep}
+            decrementStep={decrementStep}
           />
         );
       case 9:
         return (
           <Form
+            step={step}
             state={skills}
             title={"skills"}
             stateHandler={stateHandler}
             addGroup={addEmptyStateObject}
             removeGroup={removeStateObject}
+            incrementStep={incrementStep}
+            decrementStep={decrementStep}
           />
         );
       case 10:
         return (
           <Form
+            step={step}
             state={softwareSkills}
             title={"software"}
             stateHandler={stateHandler}
             addGroup={addEmptyStateObject}
             removeGroup={removeStateObject}
+            incrementStep={incrementStep}
+            decrementStep={decrementStep}
           />
         );
       case 11:
         return (
           <Form
+            step={step}
             state={languages}
             title={"languages"}
             stateHandler={stateHandler}
             addGroup={addEmptyStateObject}
             removeGroup={removeStateObject}
+            incrementStep={incrementStep}
+            decrementStep={decrementStep}
           />
         );
       default:
         return (
           <Form
+            step={step}
             state={personal}
             title={"personal"}
             stateHandler={stateHandler}
+            incrementStep={incrementStep}
+            decrementStep={decrementStep}
           />
         );
     }

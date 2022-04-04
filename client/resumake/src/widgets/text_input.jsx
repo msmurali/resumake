@@ -10,6 +10,9 @@ const TextInput = ({
   type,
   maxLength,
   minLength,
+  validated,
+  pattern,
+  title,
 }) => {
   return (
     <React.Fragment>
@@ -19,6 +22,7 @@ const TextInput = ({
       >
         {label} {required && `*`}
         <input
+          pattern={pattern}
           required={required || false}
           type={type || "text"}
           name={name}
@@ -27,7 +31,12 @@ const TextInput = ({
           value={value}
           onChange={handleChange}
           placeholder={placeholder || ""}
-          className="w-full text-base mt-1 border-2 border-gray-200 px-2 py-3 bg-gray-50 rounded-md outline-none focus:border-blue-600 block"
+          className={`w-full text-base mt-1 border-2 border-gray-200 px-2 py-3 bg-gray-50 rounded-md outline-none focus:border-blue-600 block ${
+            validated
+              ? "invalid:border-red-500 focus:invalid:border-red-500"
+              : ""
+          }`}
+          title={title || ""}
         />
       </label>
     </React.Fragment>
