@@ -75,7 +75,7 @@ const Form = ({
           </button>
         )}
         <div className="flex justify-between py-6 px-4">
-          {step != 1 && (
+          {step !== 1 && (
             <button
               onClick={decrementStep}
               type="button"
