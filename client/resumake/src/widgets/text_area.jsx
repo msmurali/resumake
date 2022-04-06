@@ -10,6 +10,7 @@ const TextArea = ({
   validated,
   pattern,
   title,
+  readOnly,
 }) => {
   return (
     <React.Fragment>
@@ -31,6 +32,7 @@ const TextArea = ({
               : ""
           }`}
           title={title || ""}
+          readOnly={readOnly || false}
         />
       </label>
     </React.Fragment>

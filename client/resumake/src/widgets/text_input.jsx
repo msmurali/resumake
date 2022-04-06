@@ -13,6 +13,7 @@ const TextInput = ({
   validated,
   pattern,
   title,
+  readOnly,
 }) => {
   return (
     <React.Fragment>
@@ -22,6 +23,7 @@ const TextInput = ({
       >
         {label} {required && `*`}
         <input
+          readOnly={readOnly || false}
           pattern={pattern}
           required={required || false}
           type={type || "text"}

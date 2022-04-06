@@ -13,6 +13,7 @@ const RangeInput = ({
   value,
   handleChange,
   required,
+  readOnly,
 }) => {
   return (
     <React.Fragment>
@@ -25,6 +26,7 @@ const RangeInput = ({
           name={name}
           required={required || false}
           type="range"
+          readOnly={readOnly || false}
           max={max || Infinity}
           min={min || 0}
           onChange={handleChange}

@@ -1,6 +1,7 @@
 import React from "react";
 import "./app.css";
 import HomePage from "./pages/home_page";
+import PreviewPage from "./pages/preview_page";
 import Form from "./widgets/form";
 import Nav from "./widgets/nav";
 
@@ -472,7 +473,22 @@ function App() {
     //   <Nav step={step} setStep={setStep} />
     //   {getFormComponent()}
     // </div>
-    <HomePage />
+    // <HomePage />
+    <PreviewPage
+      formData={{
+        personal: personal,
+        contact: contact,
+        experience: experience,
+        education: education,
+        achievements: achievements,
+        skills: skills,
+        software: softwareSkills,
+        courses: courses,
+        certification: certification,
+        projects: projects,
+        languages: languages,
+      }}
+    />
   );
 }
 

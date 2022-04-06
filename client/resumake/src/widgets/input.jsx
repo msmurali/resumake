@@ -4,7 +4,7 @@ import TextArea from "./text_area";
 import RangeInput from "./range_input";
 import { input } from "../constants/constants";
 
-const Input = ({ name, value, changeHandler, validated }) => {
+const Input = ({ name, value, changeHandler, validated, readOnly }) => {
   switch (input[name].inputtype) {
     case "text":
       return (
@@ -18,6 +18,7 @@ const Input = ({ name, value, changeHandler, validated }) => {
           validated={validated}
           pattern={input[name].pattern.source}
           title={input[name].title}
+          readOnly={readOnly || false}
         />
       );
     case "text-area":
@@ -32,6 +33,7 @@ const Input = ({ name, value, changeHandler, validated }) => {
           validated={validated}
           pattern={input[name].pattern.source}
           title={input[name].title}
+          readOnly={readOnly || false}
         />
       );
     case "range":
@@ -45,6 +47,7 @@ const Input = ({ name, value, changeHandler, validated }) => {
           max={5}
           min={1}
           step={1}
+          readOnly={readOnly || false}
         />
       );
     default:
@@ -57,6 +60,7 @@ const Input = ({ name, value, changeHandler, validated }) => {
           placeholder={input[name].placeholder}
           required={input[name].required}
           pattern={input[name].pattern.source}
+          readOnly={readOnly || false}
         />
       );
   }
