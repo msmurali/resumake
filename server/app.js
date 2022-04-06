@@ -14,8 +14,7 @@ app.get("/", (_, res) => {
 app.post("/create", (req, res) => {
   const data = req.body;
   const html = services.createResume(data);
-  console.log(html);
-  const filename = `${data["personal-info"]["first-name"]}_${data["personal-info"]["last-name"]}_resume.pdf`;
+  const filename = `${data["personal"]["first-name"]}_${data["personal"]["last-name"]}_resume.pdf`;
 
   const options = {
     root: path.join(__dirname),

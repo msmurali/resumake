@@ -9,11 +9,7 @@ function createResume(data) {
   const JSDOM = new jsdom.JSDOM(template);
   const document = JSDOM.window.document;
 
-  setResumeHeader(
-    document,
-    data["personal-info"]["full-name"],
-    data["description"]
-  );
+  setResumeHeader(document, data["personal"]["full-name"], data["description"]);
 
   data["experience"].length != 0 &&
     setExperienceArticles(document, data["experience"]);
@@ -40,7 +36,7 @@ function createResume(data) {
 
   data["languages"].length != 0 && setLanguages(document, data["languages"]);
 
-  setResumeHeaderColor(document, data["color"]);
+  setResumeHeaderColor(document, { r: "50", g: "70", b: "255" });
 
   return document.documentElement.innerHTML;
 }
@@ -157,8 +153,10 @@ function setProjects(document, data) {
     const h5 = document.createElement("h6");
     h5.textContent = project.title;
     const a = document.createElement("a");
-    a.textContent = "demo";
-    a.setAttribute("href", project.link);
+    if (project.link != "") {
+      a.textContent = "demo";
+      a.setAttribute("href", project.link);
+    }
     const p = document.createElement("p");
     p.textContent = project.description;
     li.appendChild(h5);

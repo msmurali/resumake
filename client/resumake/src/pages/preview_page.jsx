@@ -3,7 +3,9 @@ import Input from "../widgets/input";
 import { useNavigate, Link } from "react-router-dom";
 
 const PreviewPage = ({ formData, setStep }) => {
-  const submitHandler = (e) => e.preventDefault();
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
   const navigate = useNavigate();
 
   return (
