@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Input from "./input";
 
 const Form = ({
@@ -74,22 +75,37 @@ const Form = ({
             {`Add ${title}`}
           </button>
         )}
-        <div className="flex justify-between py-6 px-4">
+        <div
+          className={`flex ${
+            step === 1 ? "justify-center" : "justify-between"
+          } py-6 px-4`}
+        >
           {step !== 1 && (
             <button
               onClick={decrementStep}
               type="button"
-              className="bg-blue-600 text-white font-medium px-6 py-2 text-md rounded-md shadow-lg mt-4 mb-10 block mx-auto active:shadow-none"
+              className="bg-blue-600 text-white font-medium px-6 py-2 text-md rounded-md shadow-lg mt-4 mb-10 active:shadow-none"
             >
               {`Previous page`}
             </button>
           )}
-          <button
-            type="submit"
-            className="bg-blue-600 text-white font-medium px-6 py-2 text-md rounded-md shadow-lg mt-4 mb-10 block mx-auto active:shadow-none"
-          >
-            {step === 11 ? `Preview + Submit` : `Save + Continue`}
-          </button>
+          {step === 11 ? (
+            <Link to="/preview">
+              <button
+                type="button"
+                className="bg-blue-600 text-white font-medium px-6 py-2 text-md rounded-md shadow-lg mt-4 mb-10 active:shadow-none"
+              >
+                {`Preview + Submit`}
+              </button>
+            </Link>
+          ) : (
+            <button
+              type="submit"
+              className="bg-blue-600 text-white font-medium px-6 py-2 text-md rounded-md shadow-lg mt-4 mb-10  active:shadow-none"
+            >
+              {`Save + Continue`}
+            </button>
+          )}
         </div>
       </form>
     </React.Fragment>

@@ -4,6 +4,8 @@ import HomePage from "./pages/home_page";
 import PreviewPage from "./pages/preview_page";
 import Form from "./widgets/form";
 import Nav from "./widgets/nav";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import DownloadPage from "./pages/download_page";
 
 function App() {
   const addEmptyStateObject = (state) => {
@@ -229,6 +231,15 @@ function App() {
       case "software":
         setSoftwareSkills(() => {
           const newState = [...softwareSkills];
+          newState[id] = { ...newState[id], [name]: value };
+          return newState;
+        });
+
+        break;
+
+      case "projects":
+        setProjects(() => {
+          const newState = [...projects];
           newState[id] = { ...newState[id], [name]: value };
           return newState;
         });
@@ -469,26 +480,44 @@ function App() {
   };
 
   return (
-    // <div className="app md:grid grid-cols-page-layout grid-rows-1 md:max-h-screen">
-    //   <Nav step={step} setStep={setStep} />
-    //   {getFormComponent()}
-    // </div>
-    // <HomePage />
-    <PreviewPage
-      formData={{
-        personal: personal,
-        contact: contact,
-        experience: experience,
-        education: education,
-        achievements: achievements,
-        skills: skills,
-        software: softwareSkills,
-        courses: courses,
-        certification: certification,
-        projects: projects,
-        languages: languages,
-      }}
-    />
+    <Router>
+      <Routes>
+        <Route path="/" exact element={<HomePage />} />
+        <Route
+          exact
+          path="/create"
+          element={
+            <div className="app md:grid grid-cols-page-layout grid-rows-1 md:max-h-screen">
+              <Nav step={step} setStep={setStep} />
+              {getFormComponent()}
+            </div>
+          }
+        />
+        <Route
+          exact
+          path="/preview"
+          element={
+            <PreviewPage
+              formData={{
+                personal: personal,
+                contact: contact,
+                education: education,
+                experience: experience,
+                achievements: achievements,
+                certification: certification,
+                courses: courses,
+                projects: projects,
+                skills: skills,
+                software: softwareSkills,
+                languages: languages,
+              }}
+              setStep={setStep}
+            />
+          }
+        />
+        <Route path="/download" exact element={<DownloadPage />} />
+      </Routes>
+    </Router>
   );
 }
 

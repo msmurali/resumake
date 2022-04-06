@@ -22,7 +22,7 @@ const Nav = ({ step, setStep }) => {
       <nav className="w-full px-2 py-6 md:px-6  flex justify-between items-center md:flex-col">
         <div
           className="flex w-full items-center justify-start cursor-pointer md:py-2 "
-          onClick={() => setStep(1)}
+          // onClick={() => setStep(1)}
         >
           <PersonalIcon
             color={step === 1 ? "#ffffff" : "#6E9CFF"}
@@ -39,7 +39,7 @@ const Nav = ({ step, setStep }) => {
         </div>
         <div
           className="flex w-full items-center justify-start cursor-pointer md:py-2 "
-          onClick={() => setStep(2)}
+          // onClick={() => setStep(2)}
         >
           <ContactIcon
             color={step === 2 ? "#ffffff" : "#6E9CFF"}
@@ -56,7 +56,7 @@ const Nav = ({ step, setStep }) => {
         </div>
         <div
           className="flex w-full items-center justify-start cursor-pointer md:py-2 "
-          onClick={() => setStep(3)}
+          // onClick={() => setStep(3)}
         >
           <EducationIcon
             color={step === 3 ? "#ffffff" : "#6E9CFF"}
@@ -73,7 +73,7 @@ const Nav = ({ step, setStep }) => {
         </div>
         <div
           className="flex w-full items-center justify-start cursor-pointer md:py-2 "
-          onClick={() => setStep(4)}
+          // onClick={() => setStep(4)}
         >
           <ExperienceIcon
             color={step === 4 ? "#ffffff" : "#6E9CFF"}
@@ -90,7 +90,7 @@ const Nav = ({ step, setStep }) => {
         </div>
         <div
           className="flex w-full items-center justify-start cursor-pointer md:py-2 "
-          onClick={() => setStep(5)}
+          // onClick={() => setStep(5)}
         >
           <AchievementsIcon
             color={step === 5 ? "#ffffff" : "#6E9CFF"}
@@ -107,7 +107,7 @@ const Nav = ({ step, setStep }) => {
         </div>
         <div
           className="flex w-full items-center justify-start cursor-pointer md:py-2 "
-          onClick={() => setStep(6)}
+          // onClick={() => setStep(6)}
         >
           <CertificationIcon
             color={step === 6 ? "#ffffff" : "#6E9CFF"}
@@ -124,7 +124,7 @@ const Nav = ({ step, setStep }) => {
         </div>
         <div
           className="flex w-full items-center justify-start cursor-pointer md:py-2 "
-          onClick={() => setStep(7)}
+          // onClick={() => setStep(7)}
         >
           <CoursesIcon
             color={step === 7 ? "#ffffff" : "#6E9CFF"}
@@ -141,7 +141,7 @@ const Nav = ({ step, setStep }) => {
         </div>
         <div
           className="flex w-full items-center justify-start cursor-pointer md:py-2 "
-          onClick={() => setStep(8)}
+          // onClick={() => setStep(8)}
         >
           <ProjectsIcon
             color={step === 8 ? "#ffffff" : "#6E9CFF"}
@@ -158,7 +158,7 @@ const Nav = ({ step, setStep }) => {
         </div>
         <div
           className="flex w-full items-center justify-start cursor-pointer md:py-2 "
-          onClick={() => setStep(9)}
+          // onClick={() => setStep(9)}
         >
           <SkillsIcon
             color={step === 9 ? "#ffffff" : "#6E9CFF"}
@@ -175,7 +175,7 @@ const Nav = ({ step, setStep }) => {
         </div>
         <div
           className="flex w-full items-center justify-start cursor-pointer md:py-2 "
-          onClick={() => setStep(10)}
+          // onClick={() => setStep(10)}
         >
           <SoftwareIcon
             color={step === 10 ? "#ffffff" : "#6E9CFF"}
@@ -192,7 +192,7 @@ const Nav = ({ step, setStep }) => {
         </div>
         <div
           className="flex w-full items-center justify-start cursor-pointer md:py-2 "
-          onClick={() => setStep(11)}
+          // onClick={() => setStep(11)}
         >
           <LanguagesIcon
             color={step === 11 ? "#ffffff" : "#6E9CFF"}

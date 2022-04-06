@@ -1,5 +1,6 @@
 import React from "react";
 import ResumeBg from "../asset/resume_bg.svg";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -16,9 +17,11 @@ const HomePage = () => {
             <p className="text-sm md:text-base text-center">
               Tirelessly create a professional resume for free of cost.
             </p>
-            <button className="bg-blue-600 text-white md:text-lg font-medium px-4 py-2 md:px-5 md:py-3 rounded mx-auto my-6 block shadow-lg active:shadow-none active:bg-blue-700">
-              Get started
-            </button>
+            <Link to="/create">
+              <button className="bg-blue-600 text-white md:text-lg font-medium px-4 py-2 md:px-5 md:py-3 rounded mx-auto my-6 block shadow-lg active:shadow-none active:bg-blue-700">
+                Get started
+              </button>
+            </Link>
           </div>
         </div>
         <img src={ResumeBg} alt="resume" className="md:h-screen w-full" />
