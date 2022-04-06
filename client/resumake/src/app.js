@@ -1,5 +1,6 @@
 import React from "react";
 import "./app.css";
+import HomePage from "./pages/home_page";
 import Form from "./widgets/form";
 import Nav from "./widgets/nav";
 
@@ -467,10 +468,11 @@ function App() {
   };
 
   return (
-    <div className="app md:grid grid-cols-page-layout grid-rows-1 md:max-h-screen">
-      <Nav step={step} setStep={setStep} />
-      {getFormComponent()}
-    </div>
+    // <div className="app md:grid grid-cols-page-layout grid-rows-1 md:max-h-screen">
+    //   <Nav step={step} setStep={setStep} />
+    //   {getFormComponent()}
+    // </div>
+    <HomePage />
   );
 }
 
