@@ -26,12 +26,12 @@ app.post("/generate", (req, res) => {
     .create(html, { format: "A4" })
     .toFile(`./outputs/${filename}`, (error, _) => {
       if (error) {
-        res.status(500).send({ message: "something went wrong", code: 9876 });
+        res.status(500).send({ message: "something went wrong" });
       }
       res.sendFile(`./outputs/${filename}`, options, (err) => {
         if (err) {
           console.log(err);
-          res.status(500).send({ message: "something went wrong", code: 1234 });
+          res.status(500).send({ message: "something went wrong" });
         }
       });
     });
