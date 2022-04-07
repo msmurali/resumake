@@ -1,10 +1,19 @@
 import React from "react";
 import downloadBg from "../asset/download_bg.svg";
+import LoadingIndicator from "../widgets/loading_indicator";
+import CheckIcon from "../widgets/icons/check";
 
-const DownloadPage = () => {
+const DownloadPage = ({ downloadStatus }) => {
   return (
     <div className="h-screen w-full grid md:grid-cols-2">
       <div className="flex justify-center items-center flex-col pt-10">
+        {downloadStatus === "idle" ? (
+          <></>
+        ) : downloadStatus === "inprogress" ? (
+          <LoadingIndicator />
+        ) : (
+          <CheckIcon />
+        )}
         <h1 className="font-semibold text-4xl font-body text-center">
           Thanks for using Resumake
         </h1>

@@ -278,7 +278,7 @@ function App() {
         break;
     }
   };
-
+  const [downloadStatus, setDownloadStatus] = React.useState("idle");
   const [step, setStep] = React.useState(1);
   const [personal, setPersonal] = React.useState(() =>
     getEmptyStateObject("personal")
@@ -512,6 +512,7 @@ function App() {
                 languages: languages,
               }}
               setStep={setStep}
+              setDownloadStatus={setDownloadStatus}
             />
           }
         />

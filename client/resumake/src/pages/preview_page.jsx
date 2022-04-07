@@ -1,12 +1,33 @@
 import React from "react";
 import Input from "../widgets/input";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import download from "downloadjs";
 
-const PreviewPage = ({ formData, setStep }) => {
-  const submitHandler = (e) => {
-    e.preventDefault();
-  };
+const PreviewPage = ({ formData, setStep, setDownloadStatus }) => {
   const navigate = useNavigate();
+
+  const submitHandler = async () => {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        "template-id": "template_001",
+        ...formData,
+      }),
+    };
+
+    navigate("/download");
+
+    setDownloadStatus("inprogress");
+
+    const blob = await fetch("/generate", requestOptions)
+      .then((res) => res.blob())
+      .catch((err) => console.log(err));
+
+    download(blob, `${formData.personal["first-name"]}_resume.pdf`);
+
+    setDownloadStatus("completed");
+  };
 
   return (
     <React.Fragment>
@@ -14,7 +35,6 @@ const PreviewPage = ({ formData, setStep }) => {
         Preview
       </header>
       <form
-        id="preview-form"
         className="form h-full p-6 overflow-y-auto"
         onSubmit={submitHandler}
       >
@@ -60,15 +80,13 @@ const PreviewPage = ({ formData, setStep }) => {
           </div>
         ))}
         <div>
-          <Link to="/download">
-            <button
-              type="submit"
-              form="preview-form"
-              className="mx-auto block mt-6 mb-10 bg-blue-600 active:bg-blue-700 rounded shadow-lg active:shadow-none py-3 px-5 font-medium font-body text-white"
-            >
-              Generate Resume
-            </button>
-          </Link>
+          <button
+            type="button"
+            onClick={submitHandler}
+            className="mx-auto block mt-6 mb-10 bg-blue-600 active:bg-blue-700 rounded shadow-lg active:shadow-none py-3 px-5 font-medium font-body text-white"
+          >
+            Generate Resume
+          </button>
         </div>
       </form>
     </React.Fragment>

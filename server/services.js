@@ -5,7 +5,7 @@ const getTemplate = (tempId) =>
   fs.readFileSync(`./templates/${tempId}.html`, "utf-8");
 
 function createResume(data) {
-  const template = getTemplate(data.tempId);
+  const template = getTemplate(data["template-id"]);
   const JSDOM = new jsdom.JSDOM(template);
   const document = JSDOM.window.document;
 
@@ -18,7 +18,7 @@ function createResume(data) {
     setEducationArticles(document, data["education"]);
 
   data["achievements"].length != 0 &&
-    setAchievements(document, data["achivements"]);
+    setAchievements(document, data["achievements"]);
 
   data["projects"].length != 0 && setProjects(document, data["projects"]);
 
@@ -52,12 +52,12 @@ function appendH3Title(document, element, title) {
   element.appendChild(heading);
 }
 
-function appendUl(document, element, list) {
+function appendUl(document, element, list, title) {
   const ul = document.createElement("ul");
-  list.map((txt) => {
+  list.map((obj) => {
     const li = document.createElement("li");
     const p = document.createElement("p");
-    p.textContent = txt;
+    p.textContent = obj[title];
     li.appendChild(p);
     ul.appendChild(li);
   });
@@ -124,14 +124,12 @@ function setExperienceArticles(document, data) {
 
     const ul = document.createElement("ul");
 
-    work["description"].map((desp) => {
-      const li = document.createElement("li");
-      const p = document.createElement("p");
-      p.textContent = desp;
+    const li = document.createElement("li");
+    const p = document.createElement("p");
+    p.textContent = work["description"];
 
-      li.appendChild(p);
-      ul.appendChild(li);
-    });
+    li.appendChild(p);
+    ul.appendChild(li);
 
     article.appendChild(h3);
     article.appendChild(div);
@@ -179,7 +177,7 @@ function setAchievements(document, data) {
   data.map((achivement) => {
     const li = document.createElement("li");
     const p = document.createElement("p");
-    p.textContent = achivement;
+    p.textContent = achivement["achievement"];
     li.appendChild(p);
     ul.appendChild(li);
   });
@@ -270,7 +268,7 @@ function setLanguages(document, data) {
   const section = document.createElement("section");
   main.appendChild(section);
   appendH3Title(document, section, "Languages");
-  appendUl(document, section, data);
+  appendUl(document, section, data, "language");
 }
 
 function setCourses(document, data) {
@@ -278,7 +276,7 @@ function setCourses(document, data) {
   const section = document.createElement("section");
   main.appendChild(section);
   appendH3Title(document, section, "Courses");
-  appendUl(document, section, data);
+  appendUl(document, section, data, "course");
 }
 
 function setCertifications(document, data) {
@@ -286,7 +284,7 @@ function setCertifications(document, data) {
   const section = document.createElement("section");
   main.appendChild(section);
   appendH3Title(document, section, "Certifications");
-  appendUl(document, section, data);
+  appendUl(document, section, data, "certification");
 }
 
 module.exports = {

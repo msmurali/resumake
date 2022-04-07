@@ -7,11 +7,13 @@ const app = express();
 
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, "build")));
+
 app.get("/", (_, res) => {
-  res.status(200).send({ message: "Connection Success" });
+  res.status(200).sendFile(path.join(__dirname, "build", "index.html"));
 });
 
-app.post("/create", (req, res) => {
+app.post("/generate", (req, res) => {
   const data = req.body;
   const html = services.createResume(data);
   const filename = `${data["personal"]["first-name"]}_${data["personal"]["last-name"]}_resume.pdf`;
@@ -24,14 +26,15 @@ app.post("/create", (req, res) => {
     .create(html, { format: "A4" })
     .toFile(`./outputs/${filename}`, (error, _) => {
       if (error) {
-        res.status(500).send({ message: "something went wrong" });
+        res.status(500).send({ message: "something went wrong", code: 9876 });
       }
       res.sendFile(`./outputs/${filename}`, options, (err) => {
         if (err) {
-          res.status(500).send({ message: "something went wrong" });
+          console.log(err);
+          res.status(500).send({ message: "something went wrong", code: 1234 });
         }
       });
     });
 });
 
-app.listen(5000);
+app.listen(8000);
