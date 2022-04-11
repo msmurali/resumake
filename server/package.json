@@ -4,6 +4,7 @@
   "description": "resumake server",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "muralikrishnanMS",
@@ -13,5 +14,8 @@
     "express": "^4.17.3",
     "html-pdf": "^3.0.1",
     "jsdom": "^19.0.0"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
