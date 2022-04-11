@@ -2,6 +2,7 @@ const express = require("express");
 const services = require("./services");
 const path = require("path");
 const htmlToPdf = require("html-pdf");
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -37,4 +38,4 @@ app.post("/generate", (req, res) => {
     });
 });
 
-app.listen(8000);
+app.listen(PORT);

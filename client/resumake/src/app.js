@@ -516,7 +516,11 @@ function App() {
             />
           }
         />
-        <Route path="/download" exact element={<DownloadPage />} />
+        <Route
+          path="/download"
+          exact
+          element={<DownloadPage downloadStatus={downloadStatus} />}
+        />
       </Routes>
     </Router>
   );

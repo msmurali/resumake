@@ -9,7 +9,7 @@ const DownloadPage = ({ downloadStatus }) => {
       <div className="flex justify-center items-center flex-col pt-10">
         {downloadStatus === "inprogress" ? (
           <LoadingIndicator />
-        ) : downloadStatus === "complete" ? (
+        ) : downloadStatus === "completed" ? (
           <CheckIcon width={60} height={60} />
         ) : (
           <></>

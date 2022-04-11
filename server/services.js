@@ -9,7 +9,11 @@ function createResume(data) {
   const JSDOM = new jsdom.JSDOM(template);
   const document = JSDOM.window.document;
 
-  setResumeHeader(document, data["personal"]["full-name"], data["description"]);
+  setResumeHeader(
+    document,
+    data["personal"]["full-name"],
+    data["personal"]["description"]
+  );
 
   data["experience"].length != 0 &&
     setExperienceArticles(document, data["experience"]);
