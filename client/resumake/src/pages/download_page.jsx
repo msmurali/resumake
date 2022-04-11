@@ -7,13 +7,15 @@ const DownloadPage = ({ downloadStatus }) => {
   return (
     <div className="h-screen w-full grid md:grid-cols-2">
       <div className="flex justify-center items-center flex-col pt-10">
-        {downloadStatus === "idle" ? (
-          <></>
-        ) : downloadStatus === "inprogress" ? (
+        {downloadStatus === "inprogress" ? (
           <LoadingIndicator />
+        ) : downloadStatus === "complete" ? (
+          <CheckIcon width={60} height={60} />
         ) : (
-          <CheckIcon />
+          <></>
         )}
+
+        <br />
         <h1 className="font-semibold text-4xl font-body text-center">
           Thanks for using Resumake
         </h1>
